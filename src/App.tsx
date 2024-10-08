@@ -1,25 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import Footer from './components/footer/Footer';
+import Header from './components/header/Header';
+import routes from './utils/routes';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <>
+      <section className='max-w-[2160px] mx-auto'>
+
+        <Router>
+
+          <Header />
+          <main className='px-5 sm:px-10 md:px-16 lg:px-24 pt-20'>
+            <Routes>
+
+              {
+                routes.map(route => (
+                  <Route Component={route.Component} key={route.path} path={route.path} />
+                ))
+              }
+            </Routes>
+          </main>
+          <Footer />
+        </Router>
+
+      </section>
+    </>
+
   );
 }
 
