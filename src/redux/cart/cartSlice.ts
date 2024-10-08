@@ -5,7 +5,7 @@ import { addToCart, getCart, removeFromCart, removeWholeCart, updateCart } from 
 
 const initialState = {
     status: 'idle' as 'loading' | 'idle',
-    cart: null as CartItemsProps | null,
+    cart: {} as CartItemsProps ,
     cartTotal: 0 as number,
     guestCart: [] as GuestCartType[],
     guestCartTotal: 0 as number
